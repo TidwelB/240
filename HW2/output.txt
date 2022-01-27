@@ -1,3 +1,3 @@
-Rectangle AREA = 20
-Circle  AREA = 254.469
-Triangle AREA = Area cannot be found from only sides of a triangle
+RECTANGLE: Invalid sizes. Only use positive 
+CIRCLE  PERIMETER = 56.5486
+TRIANGLE PERIMETER = 10

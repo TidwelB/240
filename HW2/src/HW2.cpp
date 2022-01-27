@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : HW2.cpp
-// Author      : 
+// Author      : Benjamin Tidwell
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -9,9 +9,10 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-
+#include <bits/stdc++.h>
 using namespace std;
 using std::string;
+
 
 
 
@@ -31,16 +32,19 @@ void HW2(char command) {
 
 	std::stringstream  line1stream(line);
 	string a;
-	int b;
-	int c;
-	int d;
+	double b = 1;
+	double c = 1;
+	double d = 1;
 	double perim = 0.0;
 	double area = 0.0;
 	string operation = "";
 
-	line1stream >> a;
 
-	if (a == "Rectangle") {
+
+	line1stream >> a;
+	transform(a.begin(),a.end(),a.begin(),::toupper);
+	out_line = "No valid shape \n";
+	if (a == "RECTANGLE") {
 		line1stream >> b >> c;
 		perim = (2*b + 2*c);
 		area = (b*c);
@@ -62,7 +66,7 @@ void HW2(char command) {
 			out_line = a + " " + operation + " = " + str + '\n';
 		}
 	}
-	if (a == "Circle") {
+	if (a == "CIRCLE") {
 		line1stream >> b;
 		perim = (2*3.14159*b);
 		area = ((b*b)*3.14159);
@@ -84,7 +88,7 @@ void HW2(char command) {
 					out_line = a + "  " + operation + " = " + str + '\n';
 				}
 	}
-	if (a == "Triangle") {
+	if (a == "TRIANGLE") {
 		line1stream >> b >> c >> d;
 		perim = (b + c + d);
 		cout << a <<" " << b << " " << c << " " << d << " ";
@@ -103,9 +107,12 @@ void HW2(char command) {
 				}
 	}
 
+		if (b <= 0 || c <= 0 || d <= 0) {
+			cout << "Invalid Size. Only use positive" << endl;
+			out_line = a + ": Invalid sizes. Only use positive \n";
+		}
 	out_myfile << out_line;
 			}
-
 		}
 		}
 }
@@ -132,7 +139,7 @@ int main(int argc, char *argv[]) {
 					op = "PERIMETER";
 				else {
 					cout << "Invalid Command" << endl;
-					op = "INVALID. Printing in file.";
+					op = "INVALID. Printing in_file.";
 				}
 
 		cout << "Command to run is - " << op << endl;
