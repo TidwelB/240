@@ -13,9 +13,9 @@ import java.io.*;
 
 
 public class prog1 {
+    
 
     public static void main(String[] args) throws IOException {
-
 
         System.out.println("What District Would You Like To Export Data From? *This chatbot is specific to District 11 at this time*");
         String input;
@@ -37,8 +37,8 @@ public class prog1 {
 
         String line = null;
         ArrayList<String> output = new ArrayList<String>();
-        
-        // read each line and write to System.out
+        int linecount = 0;
+
         while ((line = reader.readLine()) != null) {
             line = line.replaceAll("<[^>]*>", "");
             line = line.replaceAll("Senator Josh Kimbrell", "\t\t\tSenator Josh Kimbrell");
@@ -66,6 +66,7 @@ public class prog1 {
             line = line.replaceAll("ResourcesBanking", "Resources\n\tBanking");
             line = line.replaceAll("CharterResiding", "Charter\n\tResiding");
             output.add(line);
+            
         }
         for(int i = 9; i < 10; i++){
             System.out.println(output.get(i) );
@@ -77,10 +78,13 @@ public class prog1 {
         System.setOut(out);
         for(int i = 9; i < 10; i++){
             System.out.println(output.get(i) );
+            linecount++;
         }
         for(int i = 421; i < output.size(); i++){
         System.out.println(output.get(i) );
+        linecount++;
         }
+        System.out.println("Number of Lines Exported: " + linecount);
    
 }
 }
