@@ -1,0 +1,7 @@
+The program 1 extractor is used specifically for the Distric 11 members of Senate Site.
+This program reads the entire html data of the district eleven site and parses and alters lines for the purpose of formatting.
+The data is spaced and aligned for a clean display into terminal and it's associated output file.
+This program, while it is specific to the data held in district 11, would also display the data of other districts but not in a clean format.
+For other districts to be displayed, the hardcoded url within the src code would have to be altered.
+This program will only display district 11 when entering through the user interface.
+If the user requests an alternate district, the system will state it is not available and instead show details for district 11.
