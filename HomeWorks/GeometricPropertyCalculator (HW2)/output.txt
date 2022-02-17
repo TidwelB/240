@@ -1,0 +1,3 @@
+RECTANGLE PERIMETER = 4
+CIRCLE  PERIMETER = 56.5486
+TRIANGLE: Invalid sizes. Only use positive 
