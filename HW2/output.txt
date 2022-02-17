@@ -1,3 +1,0 @@
-RECTANGLE: Invalid sizes. Only use positive 
-CIRCLE  PERIMETER = 56.5486
-TRIANGLE PERIMETER = 10

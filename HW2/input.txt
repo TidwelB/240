@@ -1,3 +1,0 @@
-Rectangle  -3 5
-Circle 9
-Triangle 3 4 3
