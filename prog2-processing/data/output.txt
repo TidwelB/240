@@ -1,0 +1,36 @@
+User Request...
+
+User Request...bills
+
+Sponsored Bills in the Senate
+	 Primary Sponsor: 	Yes			
+ 	 Search Session: 2021-2022 (124) 
+User Request...assignments
+
+Committee Assignments
+
+	Agriculture and Natural Resources
+	Banking and Insurance
+	Family and Veterans' Services
+	Fish, Game and Forestry
+	Judiciary
+ 
+
+User Request...personal information
+
+Personal Information
+
+	Aviation Leasing & Charter
+	Residing at 544 Shoreline Blvd., Boiling Springs
+	Born December 18, 1984 in Spartanburg
+	Son of Brett and Cindy Kimbrell
+	Graduated N. Greenville University, B.A., 2007
+	Garner Webb School of Business
+	December 19,  2017 married Liliya Kimbrell, 2 children, Tristan and Lucian
+	Chairman, Spartanburg County Republican Party, 2017-
+	18VC, Honor Flight Upstate, 2019-
+	Board Member, A Hero's 5K, 2017-
+	
+			
+User Request...quit
+

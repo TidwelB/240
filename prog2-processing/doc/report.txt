@@ -1,0 +1,7 @@
+The program 2 processing assignment is purposed to conduct searches on the provided district website.
+This program analyzes key words provided by the user and responds with appropriate Information.
+The user inputs are not case sensitive and search for if the request contains key words.
+Since .contains is used, the user may as a question naturally as a long string and the program will evaluate what response should be taken.
+For instance if the user asked "What is his name". The word 'name' is flagged by the program and evaluated specifically for that rather than addressing the whole string.
+This allows for faster processing of user input.
+The district website is downloaded as soon as the user runs the program. This allows up to date information upon every execution.
