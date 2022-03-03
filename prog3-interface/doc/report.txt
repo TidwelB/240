@@ -1,0 +1,8 @@
+Program 3 is a development from program 2
+Program 3 allows the user to exchange greetings and give more specific information
+The program has been divided into 2 classes. The main class (prog3) handles user inputs while the format class collects the web information for formatting
+This is done through object orientation where an instance of the format class is created when the user selects a District.
+The format class has an outstanding array list to be printed at the end of the program.
+The format class consistently recieves the user input and lines to be formatted from the main class.
+Upon selection of the district, the most current information is pulled for the user to query.
+All information is passed through an array list and printed to the data/output.txt file upon ending the program.
