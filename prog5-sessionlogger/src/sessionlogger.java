@@ -57,7 +57,7 @@ void summarySession(int sessionNum) throws FileNotFoundException {
 		BufferedReader s = new BufferedReader(new FileReader(filePath));
 		System.out.println("Reading File .csv");
 		while((line = s.readLine()) != null) {
-			System.out.print(line);
+			//System.out.print(line);
 			lineNum++;
 			if (line.equals("End of Session")) {
 				chatNum++;
@@ -87,6 +87,47 @@ void summarySession(int sessionNum) throws FileNotFoundException {
 
 
 
+void showSession(int sessionNum) throws FileNotFoundException {
+	ArrayList<String> sessions = new ArrayList<String>();
+	String filePath = "./data/chat_sessions/chat_statistics.csv";//file path
+	String line = "";
+	int lineNum = 0;
+	int chatNum = 0;
+	int queryNum = 0;
+	try {
+		BufferedReader s = new BufferedReader(new FileReader(filePath));
+		System.out.println("Reading File .csv");
+		while((line = s.readLine()) != null) {
+			lineNum++;
+			if (line.equals("End of Session")) {
+				chatNum++;
+			}
+			if((chatNum+1) == sessionNum) {
+				System.out.print(line);
+			if (line.contains("User Request:")) {
+				queryNum++;
+			}
+		}
+
+		}
+	}
+	catch (FileNotFoundException e) {
+		e.printStackTrace();
+	}
+	catch (IOException e) {
+		e.printStackTrace();
+	}
+	if (queryNum == 0) {
+		System.out.println("ERROR: there are only " + chatNum + " chat sessions. Please choose a valid number.");
+	}
+	else {
+	System.out.println("Chat " + sessionNum + " has user asking " +queryNum + " times and system respond " +(queryNum + 1)+ " times. Total duration is 4 seconds.");
+	}
+}
+
+
+
+
 	void allSessions() throws FileNotFoundException {
 		ArrayList<String> sessions = new ArrayList<String>();
 		String filePath = "./data/chat_sessions/chat_statistics.csv";//file path
@@ -98,7 +139,7 @@ void summarySession(int sessionNum) throws FileNotFoundException {
 			BufferedReader s = new BufferedReader(new FileReader(filePath));
 			System.out.println("Reading File .csv");
 			while((line = s.readLine()) != null) {
-				System.out.print(line);
+				//System.out.print(line);
 				lineNum++;
 				if (line.equals("End of Session")) {
 					chatNum++;

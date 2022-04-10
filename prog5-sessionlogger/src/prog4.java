@@ -12,7 +12,29 @@ public class prog4 {
     
 
     public static void main(String[] args) throws IOException {
-
+        sessionlogger log = new sessionlogger();
+        int chatNum = -1;
+        if (args[0].equals ("summary")) {
+            log.allSessions();
+        }
+        else if(args[0].equals ("showchat-summary")) {
+            try {
+                chatNum = Integer.parseInt(args[1]);
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Invalid ChatNum");
+            }
+            log.summarySession(chatNum);
+        }
+        else if(args[0].equals ("showchat")) {
+            try {
+                chatNum = Integer.parseInt(args[1]);
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Invalid ChatNum");
+            }
+            log.showSession(chatNum);
+        }
 
 
         System.out.println("What District Would You Like To Export Data From? *This chatbot is specific to 'District Eleven' at this time*");
@@ -28,7 +50,6 @@ public class prog4 {
         ArrayList<String> output = f.getformating();
         ArrayList<String> outline = new ArrayList<String>();
 
-        sessionlogger log = new sessionlogger();
        log.allSessions();
        System.out.println("\n \n \n");
        log.summarySession(2);
