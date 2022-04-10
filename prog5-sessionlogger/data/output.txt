@@ -1,0 +1,6 @@
+HIGHEST MATCH AT: 1.0 FOR allsessions TO allSessions
+HIGHEST MATCH AT: 1.0 FOR q TO q
+Quit... 
+
+Goodbye
+End of Session
