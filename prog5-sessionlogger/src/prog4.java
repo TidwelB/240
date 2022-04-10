@@ -13,6 +13,8 @@ public class prog4 {
 
     public static void main(String[] args) throws IOException {
 
+
+
         System.out.println("What District Would You Like To Export Data From? *This chatbot is specific to 'District Eleven' at this time*");
         String input;
         Scanner sc = new Scanner(System.in);
@@ -27,7 +29,9 @@ public class prog4 {
         ArrayList<String> outline = new ArrayList<String>();
 
         sessionlogger log = new sessionlogger();
-       // log.allSessions();
+       log.allSessions();
+       System.out.println("\n \n \n");
+       log.summarySession(2);
 
 
         String[] options = {"no entry","party", "political", "name", "who", "contact information", "contact", "phone", "address", "about", "personal", "how long", "age", "live", "committee assignments", "committee", "assignments", "sponsored bills", "bills", "voting record", "service", "options", "information", "quit", "q", "hi", "hello", "how are you", "old", "allSessions"};
