@@ -207,7 +207,11 @@ public class format {
         System.out.println(outline.get(i));
 
     }
-    System.out.println("End of Session");
+    System.out.println("End of Session\n");
     dataout.close();
+    }
+
+    ArrayList<String> getOutline() {
+        return outline;
     }
 }

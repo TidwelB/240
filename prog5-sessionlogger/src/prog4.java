@@ -4,8 +4,13 @@ package src;
 
 import java.util.ArrayList;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 import java.io.*;
+import java.time.LocalTime; // import the LocalTime class
+import java.sql.Timestamp;
+import java.util.Calendar;
 
 
 public class prog4 {
@@ -14,6 +19,7 @@ public class prog4 {
     public static void main(String[] args) throws IOException {
         sessionlogger log = new sessionlogger();
         int chatNum = -1;
+if (args.length > 0) {
         if (args[0].equals ("summary")) {
             log.allSessions();
         }
@@ -35,7 +41,15 @@ public class prog4 {
             }
             log.showSession(chatNum);
         }
+    }
 
+
+
+    java.util.Date start = new java.util.Date();
+    Timestamp startTime = new Timestamp(start.getTime());
+
+
+  
 
         System.out.println("What District Would You Like To Export Data From? *This chatbot is specific to 'District Eleven' at this time*");
         String input;
@@ -49,10 +63,6 @@ public class prog4 {
         f.getConnection(input);
         ArrayList<String> output = f.getformating();
         ArrayList<String> outline = new ArrayList<String>();
-
-       log.allSessions();
-       System.out.println("\n \n \n");
-       log.summarySession(2);
 
 
         String[] options = {"no entry","party", "political", "name", "who", "contact information", "contact", "phone", "address", "about", "personal", "how long", "age", "live", "committee assignments", "committee", "assignments", "sponsored bills", "bills", "voting record", "service", "options", "information", "quit", "q", "hi", "hello", "how are you", "old", "allSessions"};
@@ -169,9 +179,19 @@ public class prog4 {
 }
 //program end and print data
 
+java.util.Date end = new java.util.Date();
+    Timestamp endTime = new Timestamp(end.getTime());
+
+    long milliseconds = endTime.getTime() - startTime.getTime();
+		int seconds = (int) milliseconds / 1000;
+
+        int hours = seconds / 3600;
+		int minutes = (seconds % 3600) / 60;
+		seconds = (seconds % 3600) % 60;
 
 
 System.out.println("Goodbye");
+f.addLine("Session lasted: " + hours + " hours " + minutes + " minutes " + seconds +" seconds");
 f.Print();
 
 //log session
@@ -185,6 +205,8 @@ f.Print();
     for(int i = 0; i < outline.size(); i++){
         System.out.println(outline.get(i));
     }
+    Path path = Paths.get("./data/chat_sessions/chat_statistics.csv");
+    sessionlogger.appendToCSV(path, f.getOutline());
 }
     }
 

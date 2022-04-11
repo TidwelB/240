@@ -6,45 +6,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Arrays;
 public class sessionlogger
 {
-	// void read()
-	// {
-	// 	try
-	// 	{
-	// 		//List< List<String> > data = new ArrayList<>();//list of lists to store data
-	// 		String filePath = "./data/chat_sessions/chat_statistics.csv";//file path
-	// 		File file = new File(filePath);
-	// 		Scanner s = new Scanner(file);			
-	// 		//Reading until we run out of lines
-    //         int chatNum = 0;
-    //         System.out.println("Reading File .csv");
-	// 		while(s.hasNextLine())
-	// 		{
-	// 			ArrayList<String> lineData = (ArrayList<String>) Arrays.asList(s.nextLine().split("End of Session"));//splitting lines
-	// 			//data.add(lineData);
-    //             chatNum++;
-	// 		}			
-	// 		//printing the fetched data
-	// 		for(List<String> list : data)
-	// 		{
-	// 			for(String str : list)
-	// 				System.out.print(str + " ");
-	// 			System.out.println();
-	// 		}
-    //         System.out.println("Chat: " + chatNum);
-	// 		s.close();
-	// 	}
-	// 	catch(Exception e)
-	// 	{
-	// 		System.out.print(e);
-	// 	}
-	// }
-
 
 void summarySession(int sessionNum) throws FileNotFoundException {
 	ArrayList<String> sessions = new ArrayList<String>();
@@ -59,6 +29,9 @@ void summarySession(int sessionNum) throws FileNotFoundException {
 		while((line = s.readLine()) != null) {
 			//System.out.print(line);
 			lineNum++;
+			if (line.contains("Session lasted: ")) {
+				System.out.print(line);
+			}
 			if (line.equals("End of Session")) {
 				chatNum++;
 			}
@@ -102,8 +75,8 @@ void showSession(int sessionNum) throws FileNotFoundException {
 			if (line.equals("End of Session")) {
 				chatNum++;
 			}
-			if((chatNum+1) == sessionNum) {
-				System.out.print(line);
+			if((chatNum+1) == sessionNum && !line.equals("End of Session")) {
+				System.out.print(line + "\n");
 			if (line.contains("User Request:")) {
 				queryNum++;
 			}
@@ -141,6 +114,9 @@ void showSession(int sessionNum) throws FileNotFoundException {
 			while((line = s.readLine()) != null) {
 				//System.out.print(line);
 				lineNum++;
+				if (line.contains("Session lasted: ")) {
+					System.out.print(line);
+				}
 				if (line.equals("End of Session")) {
 					chatNum++;
 				}
@@ -162,4 +138,23 @@ void showSession(int sessionNum) throws FileNotFoundException {
 	//System.out.println("Statistics: " + lineNum + " Chats: " + chatNum);
 	System.out.println("There are " + chatNum + " chats to date with user asking " + queryNum + " times and system responding " + (queryNum+1) +" times. Total duration is 456 seconds");
 }
+	
+	
+	
+	static void appendToCSV(Path path, List<String> list)
+			throws IOException {
+
+        // Java 7?
+        /*Files.write(path, list, StandardCharsets.UTF_8,
+                StandardOpenOption.CREATE,
+                StandardOpenOption.APPEND);*/
+
+        // Java 8, default utf_8
+        Files.write(path, list,
+                StandardOpenOption.CREATE,
+                StandardOpenOption.APPEND);
+
+    }
+	
+	
 }
