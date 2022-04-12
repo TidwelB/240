@@ -43,8 +43,6 @@ if (args.length > 0) {
         }
     }
 
-    log.showSession(7);
-
     java.util.Date start = new java.util.Date();
     Timestamp startTime = new Timestamp(start.getTime());
 
