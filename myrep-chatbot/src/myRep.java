@@ -43,10 +43,12 @@ if (args.length > 0) {
         }
     }
 
-    log.showSession(7);
 
-    java.util.Date start = new java.util.Date();
-    Timestamp startTime = new Timestamp(start.getTime());
+    duration Timer = new duration();
+    Timer.startTime();
+
+    // java.util.Date start = new java.util.Date();
+    // Timestamp startTime = new Timestamp(start.getTime());
 
 
   
@@ -184,30 +186,17 @@ if (args.length > 0) {
             }
          
 }
-//program end and print data
 
-java.util.Date end = new java.util.Date();
-    Timestamp endTime = new Timestamp(end.getTime());
-
-    long milliseconds = endTime.getTime() - startTime.getTime();
-		int seconds = (int) milliseconds / 1000;
-
-        int hours = seconds / 3600;
-		int minutes = (seconds % 3600) / 60;
-	//	seconds = (seconds % 3600) % 60;
+    int seconds = Timer.endTime();
 
 
 System.out.println("Goodbye");
-//f.addLine("Session lasted: " + hours + " hours " + minutes + " minutes " + seconds +" seconds");
+
 String timeCall = seconds + "";
 f.addLine("Session Logging Out");
 f.addLine(timeCall);
 f.addLine("Session lasted: " + seconds +" seconds");
 f.Print();
-
-//log session
-// sessionlogger log = new sessionlogger();
-//     log.read();
 
 
 //doc/output was only used for testing. data file has intended output
