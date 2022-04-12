@@ -43,7 +43,7 @@ if (args.length > 0) {
         }
     }
 
-
+    log.showSession(7);
 
     java.util.Date start = new java.util.Date();
     Timestamp startTime = new Timestamp(start.getTime());
@@ -65,7 +65,7 @@ if (args.length > 0) {
         ArrayList<String> outline = new ArrayList<String>();
 
 
-        String[] options = {"no entry","party", "political", "name", "who", "contact information", "contact", "phone", "address", "everything about","about", "personal", "how long", "age", "live", "committee assignments", "committee", "assignments", "sponsored bills", "bills", "voting record", "service", "options", "information", "quit", "q", "hi", "hello", "how are you", "old", "allSessions","what district" ,"district", "all"};
+        String[] options = {"no entry","everything","party", "political", "name", "who", "contact information", "contact", "phone", "address", "everything about","about", "personal", "how long", "age", "live", "committee assignments", "committee", "assignments", "sponsored bills", "bills", "voting record", "service", "options", "information", "quit", "q", "hi", "hello", "how are you", "old", "allSessions","what district" ,"district", "all"};
         //while user intends to request
         int loop = 1;
         String userRequest = "no entry";
@@ -143,11 +143,11 @@ if (args.length > 0) {
                     f.getName(output, unEdited);
                     System.out.println("Enter another key search for your senator or type 'Quit' or 'q' to end");
                         } 
-                else if ((userRequest.contains("contact information")) || (userRequest.contains("contact")) || userRequest.contains("phone") || userRequest.contains("address") || userRequest.contains("information")) {
+                else if ((userRequest.contains("contact information")) || (userRequest.contains("contact")) || userRequest.contains("phone") || userRequest.contains("address") || userRequest.contains("information") || userRequest.contains("live")){
                    f.getContactInformation(output, unEdited); 
                    System.out.println("Enter another key search for your senator or type 'Quit' or 'q' to end");     
             }
-            else if ((userRequest.contains("personal information")) ||  userRequest.contains("about") || userRequest.contains("personal") || userRequest.contains("age") || userRequest.contains("old") || userRequest.contains("how long") || userRequest.contains("live") || userRequest.contains("information")) {
+            else if ((userRequest.contains("personal information")) ||  userRequest.equals("about") || userRequest.contains("personal") || userRequest.contains("age") || userRequest.contains("old") || userRequest.contains("how long") || userRequest.contains("information")) {
                 f.getPersonalInformation(output, unEdited);  
                 System.out.println("Enter another key search for your senator or type 'Quit' or 'q' to end"); 
             }
@@ -175,7 +175,7 @@ if (args.length > 0) {
                 log.allSessions();
                 System.out.println("Enter another key search for your senator or type 'Quit' or 'q' to end");
             }
-            else if ((userRequest.contains("all")) || userRequest.contains("everything")) {
+            else if ((userRequest.contains("all")) || userRequest.contains("everything") || userRequest.equals("everything about")) {
                 f.getAll(output, unEdited);
                 System.out.println("Enter another key search for your senator or type 'Quit' or 'q' to end");
             }

@@ -88,6 +88,12 @@ public class format {
         }
     
     }
+    else if (userRequest.contains("live")) {
+        for(int i = 430; i < 441; i++){
+            System.out.println(output.get(i) );
+            outline.add(output.get(i));
+        }
+    }
     else {
         for(int i = 10; i < 11; i++){
             System.out.println(output.get(i) );
@@ -97,6 +103,7 @@ public class format {
         System.out.println(output.get(i) );
         outline.add(output.get(i));
     }
+    
     }
     return output;
 
@@ -213,7 +220,7 @@ public class format {
         System.setOut(dataout);
         outline.add("Quit... \n");
         outline.add("End of Session\n");
-        outline.add("Goodbye");
+        //outline.add("Goodbye");
     for(int i = 0; i < outline.size(); i++){
         System.out.println(outline.get(i));
 

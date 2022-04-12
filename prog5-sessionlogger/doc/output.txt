@@ -1,4 +1,4 @@
-User Request...allSessions
+User Request...show me everything about my senator
 
 User Request...q
 

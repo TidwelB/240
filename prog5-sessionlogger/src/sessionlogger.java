@@ -19,22 +19,33 @@ void summarySession(int sessionNum) throws FileNotFoundException {
 	int lineNum = 0;
 	int chatNum = 0;
 	int queryNum = 0;
+	int semaphore = 0;
+	int sessionTime = 0;
 	try {
 		BufferedReader s = new BufferedReader(new FileReader(filePath));
 		System.out.println("Reading File .csv");
 		while((line = s.readLine()) != null) {
 			//System.out.print(line);
 			lineNum++;
-			if (line.contains("Session lasted: ")) {
-				System.out.print(line);
-			}
 			if (line.equals("End of Session")) {
 				chatNum++;
 			}
 			if((chatNum+1) == sessionNum) {
-			if (line.contains("User Request:")) {
-				queryNum++;
-			}
+				if (line.contains("User Request:")) {
+					queryNum++;
+				}
+				if (semaphore == 1) {
+						try{
+							sessionTime += Integer.parseInt(line);
+						}
+						catch (NumberFormatException ex){
+							ex.printStackTrace();
+						}
+						semaphore = 0;
+					}
+					if (line.equals("Session Logging Out")) {
+						semaphore = 1;
+					}
 		}
 
 		}
@@ -45,11 +56,11 @@ void summarySession(int sessionNum) throws FileNotFoundException {
 	catch (IOException e) {
 		e.printStackTrace();
 	}
-	if (queryNum == 0) {
+	if (sessionNum > chatNum) {
 		System.out.println("Session " +sessionNum+ "Does not exist");
 	}
-	else {
-	System.out.println("Chat " + sessionNum + " has user asking " +queryNum + " times and system respond " +(queryNum + 1)+ " times. Total duration is 4 seconds.");
+	else if (sessionNum <= chatNum) {
+	System.out.println("Chat " + sessionNum + " has user asking " +queryNum + " times and system respond " +(queryNum + 1)+ " times. Total duration is "+sessionTime+ " seconds.");
 	}
 }
 
@@ -105,7 +116,7 @@ void showSession(int sessionNum) throws FileNotFoundException {
 	if (sessionNum > chatNum) {
 		System.out.println("ERROR: there are only " + chatNum + " valid chat sessions. Please choose a valid number.");
 	}
-	else {
+	else if (sessionNum <= chatNum) {
 	System.out.println("Chat " + sessionNum + " has user asking " +queryNum + " times and system respond " +(queryNum + 1)+ " times. Total duration is "+sessionTime+" seconds.");
 	}
 }
