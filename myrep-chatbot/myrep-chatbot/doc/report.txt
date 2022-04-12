@@ -1,0 +1,16 @@
+Program 5 is a development from program 2, 3 and 4
+Program 4 allows the user to exchange greetings and give more specific information
+The program has been divided into 2 classes. The main class (prog5) handles user inputs while the format class collects the web information for formatting
+This is done through object orientation where an instance of the format class is created when the user selects a District.
+The format class has an outstanding array list to be printed at the end of the program.
+The format class consistently recieves the user input and lines to be formatted from the main class.
+Upon selection of the district, the most current information is pulled for the user to query.
+All information is passed through an array list and printed to the data/output.txt file upon ending the program.
+The User input is paresed by spaces to determine every word in the search. Each one of these words is compared to a key search term.
+If a user input word matches a key search term by 70% or more then the user input will be converted to the key search and handled accordingly.
+If there is no search term that adiquately matches then the user will be prompted to enter another search.
+There is now a session logger. It hold all sessions that have passed through the terminal.
+This is accessed through ARGUMENTS. The program will continue to run after addressing the argument.
+chat sessions can be read as well as statistics from them.
+
+Program was completed independently
