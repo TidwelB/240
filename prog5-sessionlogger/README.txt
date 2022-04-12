@@ -4,3 +4,5 @@ chat sessions can be read as well as statistics from them. using arguments of
 "summary"
 "showchat-summary 'chatNumber'"
 "showchat 'chatNumber'"
+
+All work was done independently

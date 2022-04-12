@@ -2,7 +2,6 @@ package src;
 
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,13 +10,10 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.Arrays;
 public class sessionlogger
 {
 
 void summarySession(int sessionNum) throws FileNotFoundException {
-	ArrayList<String> sessions = new ArrayList<String>();
 	String filePath = "./data/chat_sessions/chat_statistics.csv";//file path
 	String line = "";
 	int lineNum = 0;
@@ -61,12 +57,13 @@ void summarySession(int sessionNum) throws FileNotFoundException {
 
 
 void showSession(int sessionNum) throws FileNotFoundException {
-	ArrayList<String> sessions = new ArrayList<String>();
 	String filePath = "./data/chat_sessions/chat_statistics.csv";//file path
 	String line = "";
 	int lineNum = 0;
 	int chatNum = 0;
 	int queryNum = 0;
+	int semaphore = 0;
+	int sessionTime = 0;
 	try {
 		BufferedReader s = new BufferedReader(new FileReader(filePath));
 		System.out.println("Reading File .csv");
@@ -80,6 +77,21 @@ void showSession(int sessionNum) throws FileNotFoundException {
 			if (line.contains("User Request:")) {
 				queryNum++;
 			}
+			if (semaphore == 1) {
+				//System.out.println("Semaphore checked... printing session time..." + sessionTime);
+				// if (line.matches("[0-999]" + "\n")) {
+					try{
+						sessionTime += Integer.parseInt(line);
+					}
+					catch (NumberFormatException ex){
+						ex.printStackTrace();
+					}
+					semaphore = 0;
+				}
+				if (line.equals("Session Logging Out")) {
+					semaphore = 1;
+				}
+
 		}
 
 		}
@@ -90,11 +102,11 @@ void showSession(int sessionNum) throws FileNotFoundException {
 	catch (IOException e) {
 		e.printStackTrace();
 	}
-	if (queryNum == 0) {
-		System.out.println("ERROR: there are only " + chatNum + " chat sessions. Please choose a valid number.");
+	if (sessionNum > chatNum) {
+		System.out.println("ERROR: there are only " + chatNum + " valid chat sessions. Please choose a valid number.");
 	}
 	else {
-	System.out.println("Chat " + sessionNum + " has user asking " +queryNum + " times and system respond " +(queryNum + 1)+ " times. Total duration is 4 seconds.");
+	System.out.println("Chat " + sessionNum + " has user asking " +queryNum + " times and system respond " +(queryNum + 1)+ " times. Total duration is "+sessionTime+" seconds.");
 	}
 }
 
@@ -108,14 +120,24 @@ void showSession(int sessionNum) throws FileNotFoundException {
 		int lineNum = 0;
 		int chatNum = 0;
 		int queryNum = 0;
+		int sessionTime = 0;
+		int semaphore = 0;
 		try {
 			BufferedReader s = new BufferedReader(new FileReader(filePath));
 			System.out.println("Reading File .csv");
 			while((line = s.readLine()) != null) {
 				//System.out.print(line);
 				lineNum++;
-				if (line.contains("Session lasted: ")) {
-					System.out.print(line);
+				if (semaphore == 1) {
+				//System.out.println("Semaphore checked... printing session time..." + sessionTime);
+				// if (line.matches("[0-999]" + "\n")) {
+					try{
+						sessionTime += Integer.parseInt(line);
+					}
+					catch (NumberFormatException ex){
+						ex.printStackTrace();
+					}
+					semaphore = 0;
 				}
 				if (line.equals("End of Session")) {
 					chatNum++;
@@ -123,8 +145,12 @@ void showSession(int sessionNum) throws FileNotFoundException {
 				if (line.contains("User Request:")) {
 					queryNum++;
 				}
+				if (line.equals("Session Logging Out")) {
+					semaphore = 1;
+				}
 
 			}
+			System.out.println("There are " + chatNum + " chats to date with user asking " + queryNum + " times and system responding " + (queryNum+1) +" times. Total duration is " +sessionTime+" seconds");
 		}
 		catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -136,7 +162,7 @@ void showSession(int sessionNum) throws FileNotFoundException {
 	
 		
 	//System.out.println("Statistics: " + lineNum + " Chats: " + chatNum);
-	System.out.println("There are " + chatNum + " chats to date with user asking " + queryNum + " times and system responding " + (queryNum+1) +" times. Total duration is 456 seconds");
+	//System.out.println("There are " + chatNum + " chats to date with user asking " + queryNum + " times and system responding " + (queryNum+1) +" times. Total duration is 456 seconds");
 }
 	
 	

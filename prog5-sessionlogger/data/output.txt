@@ -1,12 +1,11 @@
-HIGHEST MATCH AT: 1.0 FOR who TO who
-User Request: who is my senator?...
-
-
-							Senator Josh Kimbrell
-
-
+HIGHEST MATCH AT: 1.0 FOR allsessions TO allSessions
 HIGHEST MATCH AT: 1.0 FOR q TO q
+Session Logging Out
+15
+Session lasted: 15 seconds
 Quit... 
+
+End of Session
 
 Goodbye
 End of Session

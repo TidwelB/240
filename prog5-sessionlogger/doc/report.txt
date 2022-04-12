@@ -12,3 +12,5 @@ If there is no search term that adiquately matches then the user will be prompte
 There is now a session logger. It hold all sessions that have passed through the terminal.
 This is accessed through ARGUMENTS. The program will continue to run after addressing the argument.
 chat sessions can be read as well as statistics from them.
+
+Program was completed independently

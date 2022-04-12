@@ -63,6 +63,7 @@ public class format {
     line = line.replaceAll("InsuranceFamily", "Insurance\n\tFamily");
     line = line.replaceAll("ResourcesBanking", "Resources\n\tBanking");
     line = line.replaceAll("CharterResiding", "Charter\n\tResiding");
+    line = line.replaceAll("- Map", "");
     output.add(line);
         }
         return output;
@@ -171,6 +172,15 @@ public class format {
         return outline;
     }
 
+    ArrayList<String>getDistrict(ArrayList<String> output, String userRequest) {
+        outline.add("User Request: " + userRequest + "...\n");
+        for(int i = 428; i < 429; i++){
+        System.out.println(output.get(i) );
+        outline.add(output.get(i));
+        }
+        return outline;
+    }
+
     ArrayList<String>getOptions(ArrayList<String> output, String userRequest) {
         outline.add("User Request: " + userRequest + "...\n");
         System.out.println("Key terms: Contact Information, Personal Information, Committee Assignments, Sponsored Bills, Voting Records, Service Record, All\n");
@@ -192,8 +202,8 @@ public class format {
         else System.out.println("Enter a key search for your senator or type 'Quit' or 'q' to end");
     }
 
-    void addLine(String line) {
-        outline.add(line);
+    void addLine(String string) {
+        outline.add(string);
     }
 
     
@@ -202,6 +212,7 @@ public class format {
         PrintStream dataout = new PrintStream(new File("data/output.txt"));
         System.setOut(dataout);
         outline.add("Quit... \n");
+        outline.add("End of Session\n");
         outline.add("Goodbye");
     for(int i = 0; i < outline.size(); i++){
         System.out.println(outline.get(i));
@@ -212,6 +223,7 @@ public class format {
     }
 
     ArrayList<String> getOutline() {
+
         return outline;
     }
 }
