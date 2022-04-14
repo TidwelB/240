@@ -1,5 +1,6 @@
+HIGHEST MATCH AT: 1.0 FOR summary TO summary
 HIGHEST MATCH AT: 1.0 FOR everything TO everything
-User Request: show me everything about my senator...
+User Request: everything...
 
 	    	    South Carolina Legislature Online - Member Biography
 
@@ -88,8 +89,8 @@ Voting Record
 
 HIGHEST MATCH AT: 1.0 FOR q TO q
 Session Logging Out
-17
-Session lasted: 17 seconds
+21
+Session lasted: 21 seconds
 Quit... 
 
 End of Session

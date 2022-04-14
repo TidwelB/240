@@ -19,6 +19,9 @@ public class prog5 {
     public static void main(String[] args) throws IOException {
         sessionlogger log = new sessionlogger();
         int chatNum = -1;
+
+
+        //Args method Derived from https://github.com/hatc3000/CSCE240/blob/main/prog_assignments/prog5-sessionlogger/src/commandQueries.java
 if (args.length > 0) {
         if (args[0].equals ("summary")) {
             log.allSessions();
@@ -42,9 +45,13 @@ if (args.length > 0) {
             log.showSession(chatNum);
         }
     }
+    //End of derivative
+
 
     java.util.Date start = new java.util.Date();
     Timestamp startTime = new Timestamp(start.getTime());
+
+    
 
 
   
@@ -63,7 +70,7 @@ if (args.length > 0) {
         ArrayList<String> outline = new ArrayList<String>();
 
 
-        String[] options = {"no entry","everything","party", "political", "name", "who", "contact information", "contact", "phone", "address", "everything about","about", "personal", "how long", "age", "live", "committee assignments", "committee", "assignments", "sponsored bills", "bills", "voting record", "service", "options", "information", "quit", "q", "hi", "hello", "how are you", "old", "allSessions","what district" ,"district", "all"};
+        String[] options = {"showchat-summary", "showchat", "summary", "no entry","everything","party", "political", "name", "who", "contact information", "contact", "phone", "address", "everything about","about", "personal", "how long", "age", "live", "committee assignments", "committee", "assignments", "sponsored bills", "bills", "voting record", "service", "options", "information", "quit", "q", "hi", "hello", "how are you", "old", "allSessions","what district" ,"district", "all"};
         //while user intends to request
         int loop = 1;
         String userRequest = "no entry";
@@ -84,7 +91,10 @@ if (args.length > 0) {
                 outline.add("User Request..." + userRequest + "\n");
                 userRequest = userRequest.toLowerCase();
                 userRequest = userRequest.trim();
-                userRequest = userRequest.replaceAll("\\p{Punct}", "");
+                if (!userRequest.contains("showchat-summary")){
+                    userRequest = userRequest.replaceAll("\\p{Punct}", "");
+                }
+                
 
                 double value = 0.0;
                 int match = 0;
@@ -118,7 +128,10 @@ if (args.length > 0) {
                     System.out.println("HIGHEST MATCH AT: " + value + " FOR " + keyWord + " TO " + options[match]);
                 }
                
-                userRequest = options[match];
+                if (!userRequest.contains("showchat-summary") && !userRequest.contains("showchat") && !userRequest.contains("summary")) {
+                    userRequest = options[match];
+                }
+                
             }
             
             
@@ -177,35 +190,64 @@ if (args.length > 0) {
                 f.getAll(output, unEdited);
                 System.out.println("Enter another key search for your senator or type 'Quit' or 'q' to end");
             }
+            else if ((userRequest.contains("summary")) || userRequest.contains("showchat-summary") || userRequest.contains("showchat")) {
+                if((userRequest.contains("showchat-summary"))) {
+                    //trim chars
+                    userRequest = userRequest.replaceAll("[^0-9]", "");
+                    try {
+                        chatNum = Integer.parseInt(userRequest);
+                        log.summarySession(chatNum);
+                    }
+                    catch (NumberFormatException e) {
+                        System.out.println("Invalid ChatNum");
+                    }
+                    
+                }
+                else if ((userRequest.contains("showchat"))) {
+                    //trim chars
+                    userRequest = userRequest.replaceAll("[^0-9]", "");
+                    try {
+                        chatNum = Integer.parseInt(userRequest);
+
+                        log.showSession(chatNum);
+                    }
+                    catch (NumberFormatException e) {
+                        System.out.println("Invalid ChatNum");
+                    }
+    
+                }
+                else  {
+                    log.allSessions();
+                }
+                System.out.println("Enter another key search for your senator or type 'Quit' or 'q' to end");
+                chatNum = -1;
+            }
             else if (loop == 1) {
                 f.Greeting(unEdited);
             }
+
          
 }
-//program end and print data
 
 java.util.Date end = new java.util.Date();
-    Timestamp endTime = new Timestamp(end.getTime());
+Timestamp endTime = new Timestamp(end.getTime());
 
-    long milliseconds = endTime.getTime() - startTime.getTime();
-		int seconds = (int) milliseconds / 1000;
+long milliseconds = endTime.getTime() - startTime.getTime();
+    int seconds = (int) milliseconds / 1000;
 
-        int hours = seconds / 3600;
-		int minutes = (seconds % 3600) / 60;
-	//	seconds = (seconds % 3600) % 60;
+    int hours = seconds / 3600;
+    int minutes = (seconds % 3600) / 60;
+//	seconds = (seconds % 3600) % 60;
+
 
 
 System.out.println("Goodbye");
-//f.addLine("Session lasted: " + hours + " hours " + minutes + " minutes " + seconds +" seconds");
+
 String timeCall = seconds + "";
 f.addLine("Session Logging Out");
 f.addLine(timeCall);
 f.addLine("Session lasted: " + seconds +" seconds");
 f.Print();
-
-//log session
-// sessionlogger log = new sessionlogger();
-//     log.read();
 
 
 //doc/output was only used for testing. data file has intended output

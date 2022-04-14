@@ -56,10 +56,10 @@ void summarySession(int sessionNum) throws FileNotFoundException {
 	catch (IOException e) {
 		e.printStackTrace();
 	}
-	if (sessionNum > chatNum) {
+	if (sessionNum > chatNum || sessionNum <= 0) {
 		System.out.println("Session " +sessionNum+ "Does not exist");
 	}
-	else if (sessionNum <= chatNum) {
+	else if (sessionNum <= chatNum && sessionNum > 0) {
 	System.out.println("Chat " + sessionNum + " has user asking " +queryNum + " times and system respond " +(queryNum + 1)+ " times. Total duration is "+sessionTime+ " seconds.");
 	}
 }
@@ -113,12 +113,12 @@ void showSession(int sessionNum) throws FileNotFoundException {
 	catch (IOException e) {
 		e.printStackTrace();
 	}
-	if (sessionNum > chatNum) {
+	if (sessionNum > chatNum || sessionNum <= 0) {
 		System.out.println("ERROR: there are only " + chatNum + " valid chat sessions. Please choose a valid number.");
 	}
-	else if (sessionNum <= chatNum) {
-	System.out.println("Chat " + sessionNum + " has user asking " +queryNum + " times and system respond " +(queryNum + 1)+ " times. Total duration is "+sessionTime+" seconds.");
-	}
+	// else if (sessionNum <= chatNum && sessionNum > 0) {
+	// System.out.println("Chat " + sessionNum + " has user asking " +queryNum + " times and system respond " +(queryNum + 1)+ " times. Total duration is "+sessionTime+" seconds.");
+	// }
 }
 
 

@@ -1,4 +1,6 @@
-User Request...show me everything about my senator
+User Request...summary
+
+User Request...everything
 
 User Request...q
 
