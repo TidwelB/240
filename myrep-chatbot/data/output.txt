@@ -1,5 +1,5 @@
-HIGHEST MATCH AT: 1.0 FOR old TO old
-User Request: how old is he?...
+HIGHEST MATCH AT: 1.0 FOR about TO about
+User Request: Tell me about the representative...
 
 Personal Information
 
@@ -15,8 +15,58 @@ Personal Information
 	Board Member, A Hero's 5K, 2017-
 	
 			
-HIGHEST MATCH AT: 1.0 FOR all TO all
-User Request: all...
+HIGHEST MATCH AT: 1.0 FOR live TO live
+User Request: where does my rep live?...
+
+
+
+Columbia Address
+502 Gressette Bldg.Columbia, SC 29201
+Business Phone 803-212-6108
+
+
+Home Address
+500 Ammons Road SpartanburgSC 29306
+
+
+HIGHEST MATCH AT: 1.0 FOR contact TO contact
+User Request: how do i contact my rep?...
+
+	    
+
+							Senator Josh Kimbrell
+
+
+
+
+Republican - Spartanburg
+District 11 - Spartanburg County 
+
+
+
+Columbia Address
+502 Gressette Bldg.Columbia, SC 29201
+Business Phone 803-212-6108
+
+
+Home Address
+500 Ammons Road SpartanburgSC 29306
+
+
+HIGHEST MATCH AT: 1.0 FOR committee TO committee
+User Request: what committee is my repo on?...
+
+Committee Assignments
+
+	Agriculture and Natural Resources
+	Banking and Insurance
+	Family and Veterans' Services
+	Fish, Game and Forestry
+	Judiciary
+ 
+
+HIGHEST MATCH AT: 1.0 FOR everything TO everything
+User Request: tell me everything...
 
 	    	    South Carolina Legislature Online - Member Biography
 
@@ -103,10 +153,22 @@ Voting Record
 
 
 
+HIGHEST MATCH AT: 1.0 FOR district TO district
+User Request: district...
+
+District 11 - Spartanburg County 
+Your search wasn't close to any key words. Please rephrase or type 'options' for some ideas
+User Request: asaldfjfej...
+
+HIGHEST MATCH AT: 1.0 FOR summary TO summary
+HIGHEST MATCH AT: 0.9411764705882353 FOR -showchat-summary TO showchat-summary
+HIGHEST MATCH AT: 1.0 FOR showchat TO showchat
+HIGHEST MATCH AT: 1.0 FOR showchat TO showchat
+HIGHEST MATCH AT: 1.0 FOR showchat TO showchat
 HIGHEST MATCH AT: 1.0 FOR q TO q
 Session Logging Out
-13
-Session lasted: 13 seconds
+137
+Session lasted: 137 seconds
 Quit... 
 
 End of Session

@@ -1,6 +1,26 @@
-User Request...how old is he?
+User Request...Tell me about the representative
 
-User Request...all
+User Request...where does my rep live?
+
+User Request...how do i contact my rep?
+
+User Request...what committee is my repo on?
+
+User Request...tell me everything
+
+User Request...what district do you support for Q/A?
+
+User Request...asaldfjfej
+
+User Request...-summary
+
+User Request...-showchat-summary 2
+
+User Request...show-chat 2
+
+User Request...showchat 200
+
+User Request...showchat 0
 
 User Request...q
 

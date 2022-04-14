@@ -67,7 +67,7 @@ if (args.length > 0) {
         ArrayList<String> outline = new ArrayList<String>();
 
 
-        String[] options = {"no entry","everything","party", "political", "name", "who", "contact information", "contact", "phone", "address", "everything about","about", "personal", "how long", "age", "live", "committee assignments", "committee", "assignments", "sponsored bills", "bills", "voting record", "service", "options", "information", "quit", "q", "hi", "hello", "how are you", "old", "allSessions","what district" ,"district", "all"};
+        String[] options = {"showchat-summary", "showchat", "summary", "no entry","everything","party", "political", "name", "who", "contact information", "contact", "phone", "address", "everything about","about", "personal", "how long", "age", "live", "committee assignments", "committee", "assignments", "sponsored bills", "bills", "voting record", "service", "options", "information", "quit", "q", "hi", "hello", "how are you", "old", "allSessions","what district" ,"district", "all"};
         //while user intends to request
         int loop = 1;
         String userRequest = "no entry";
@@ -88,7 +88,10 @@ if (args.length > 0) {
                 outline.add("User Request..." + userRequest + "\n");
                 userRequest = userRequest.toLowerCase();
                 userRequest = userRequest.trim();
-                userRequest = userRequest.replaceAll("\\p{Punct}", "");
+                if (!userRequest.contains("showchat-summary")){
+                    userRequest = userRequest.replaceAll("\\p{Punct}", "");
+                }
+                
 
                 double value = 0.0;
                 int match = 0;
@@ -122,7 +125,10 @@ if (args.length > 0) {
                     System.out.println("HIGHEST MATCH AT: " + value + " FOR " + keyWord + " TO " + options[match]);
                 }
                
-                userRequest = options[match];
+                if (!userRequest.contains("showchat-summary") && !userRequest.contains("showchat") && !userRequest.contains("summary")) {
+                    userRequest = options[match];
+                }
+                
             }
             
             
@@ -181,9 +187,42 @@ if (args.length > 0) {
                 f.getAll(output, unEdited);
                 System.out.println("Enter another key search for your senator or type 'Quit' or 'q' to end");
             }
+            else if ((userRequest.contains("summary")) || userRequest.contains("showchat-summary") || userRequest.contains("showchat")) {
+                if((userRequest.contains("showchat-summary"))) {
+                    //trim chars
+                    userRequest = userRequest.replaceAll("[^0-9]", "");
+                    try {
+                        chatNum = Integer.parseInt(userRequest);
+                        log.summarySession(chatNum);
+                    }
+                    catch (NumberFormatException e) {
+                        System.out.println("Invalid ChatNum");
+                    }
+                    
+                }
+                else if ((userRequest.contains("showchat"))) {
+                    //trim chars
+                    userRequest = userRequest.replaceAll("[^0-9]", "");
+                    try {
+                        chatNum = Integer.parseInt(userRequest);
+                        
+                        log.showSession(chatNum);
+                    }
+                    catch (NumberFormatException e) {
+                        System.out.println("Invalid ChatNum");
+                    }
+    
+                }
+                else  {
+                    log.allSessions();
+                }
+                System.out.println("Enter another key search for your senator or type 'Quit' or 'q' to end");
+                chatNum = -1;
+            }
             else if (loop == 1) {
                 f.Greeting(unEdited);
             }
+
          
 }
 
