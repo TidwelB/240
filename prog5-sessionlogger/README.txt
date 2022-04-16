@@ -5,4 +5,26 @@ chat sessions can be read as well as statistics from them. using arguments of
 "showchat-summary 'chatNumber'"
 "showchat 'chatNumber'"
 
-All work was done independently
+Command line argument handling [ln 25 - ln 47] derived from:
+https://github.com/hatc3000/CSCE240/blob/main/prog_assignments/prog5-sessionlogger/src/commandQueries.java
+
+
+myRep completed in Java 
+Demo video can be viewed with link or downloaded under doc/myRep.mp4
+https://youtu.be/m4D8A1-Vsvo
+Ben Tidwell 
+	Contains:
+	- src
+		-compare.java
+		-duration.java
+		-format.java
+		-myRep.java
+		-sessionlogger.java
+	- data
+		- chat_sessions
+			-chat_statistics.csv
+		-output
+	- doc
+		-output.txt
+		-report.txt
+		-UML.png
