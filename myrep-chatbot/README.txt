@@ -10,6 +10,8 @@ https://github.com/hatc3000/CSCE240/blob/main/prog_assignments/prog5-sessionlogg
 
 
 myRep completed in Java 
+Demo video can be viewed with link or downloaded under doc/myRep.mp4
+https://youtu.be/m4D8A1-Vsvo
 Ben Tidwell 
 	Contains:
 	- src
