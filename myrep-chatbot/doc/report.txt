@@ -1,6 +1,6 @@
-Program 5 is a development from program 2, 3 and 4
+Program myRep is a development from program 2, 3 and 4
 Program 4 allows the user to exchange greetings and give more specific information
-The program has been divided into 2 classes. The main class (prog5) handles user inputs while the format class collects the web information for formatting
+The program has been divided into 2 classes. The main class (myRep) handles user inputs while the format class collects the web information for formatting
 This is done through object orientation where an instance of the format class is created when the user selects a District.
 The format class has an outstanding array list to be printed at the end of the program.
 The format class consistently recieves the user input and lines to be formatted from the main class.
@@ -13,4 +13,5 @@ There is now a session logger. It hold all sessions that have passed through the
 This is accessed through ARGUMENTS. The program will continue to run after addressing the argument.
 chat sessions can be read as well as statistics from them.
 
-Program was completed independently
+Command line argument handling [ln 25 - ln 47] derived from:
+https://github.com/hatc3000/CSCE240/blob/main/prog_assignments/prog5-sessionlogger/src/commandQueries.java
